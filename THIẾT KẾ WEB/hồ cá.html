@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ho ca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .aquarium {
+            width: 800px;
+            height: 500px;
+            background-color: #00bfff;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            border: 5px solid #0086b3;
+            background-image: url('assets/nền.02.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 50px auto;
+        }
+        .fish {
+            width: 120px;
+            height: 70px;
+            border-radius: 50%;
+            position: absolute;
+            transform-origin: center;
+            animation: swim 25s infinite linear;
+        }
+        .fish1 { top: 50px; animation-delay: 0s; }
+        .fish2 { top: 150px; animation-delay: 5s; animation-duration: 15s; }
+        .fish3 { top: 270px; animation-delay: 2s; animation-duration: 33s; }
+        .ca{
+            left:50px; top:300px;
+            position: absolute;
+            animation-name: ca;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+        }
+        @keyframes ca{
+            0%   {left:50px; top:300px;}
+            20%  {left:300px; top:350px;}
+            40%  {left:500px; top:300px;}
+            50%  {left:600px; top:50px;}
+            60%  {left:600px; top:100px;}
+            80%  {left:500px; top:200px;}
+            100% {left:100px; top:250px; 
+            transform:scaleX(-1);}
+        }
+        .muc {
+        width: 100px; 
+        height: auto;
+        position: absolute;
+        bottom: 100px;
+        right: 50px;
+        animation: muc 6s infinite ease-in-out;
+    }
+
+        @keyframes muc {
+        0% { transform: translateY(0); }
+        25% { transform: translateY(-30px); }
+        50% { transform: translateY(0); }
+        75% { transform: translateY(30px); }
+        100% { transform: translateY(0); }
+    }
+
+
+        .crab {
+            width: 150px;
+            height: 100px;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            border-radius: 50%;
+            animation: crabSwim 14s infinite alternate ease-in-out;
+        }
+        .crab::before,
+        .crab::after {
+            content: "";
+            width: 10px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            border-radius: 50%;
+            animation: clawMove 0.3s infinite alternate ease-in-out;
+        }
+        .crab::before { left: -10px; transform-origin: right; }
+        .crab::after { right: -10px; transform-origin: left; }
+
+        @keyframes crabSwim {
+            0% { left: 0; transform: scaleX(1) translateY(0); }
+            50% { left: 440px; transform: scaleX(1) translateY(-10px); }
+            100% { left: 0; transform: scaleX(1) translateY(0); }
+        }
+
+        @keyframes clawMove {
+            0% { transform: rotate(30deg); }
+            100% { transform: rotate(-30deg); }
+        }
+
+        @keyframes swim {
+            0% { left: -120px; transform: scaleX(1); }
+            50% { left: calc(100% - 120px); transform: scaleX(1); }
+            51% { transform: scaleX(-1); }
+            100% { left: -120px; transform: scaleX(-1); }
+        }
+
+    
+        .bubble {
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            animation: rise 5s infinite ease-in;
+            opacity: 0.7;
+        }
+
+        
+        .bubble1 {
+            left: 20%;
+            width: 10px;
+            height: 10px;
+            animation-duration: 4s;
+        }
+        .bubble2 {
+            left: 40%;
+            width: 12px;
+            height: 12px;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+        .bubble3 {
+            left: 60%;
+            width: 8px;
+            height: 8px;
+            animation-duration: 3s;
+            animation-delay: 2s;
+        }
+        .bubble4 {
+            left: 80%;
+            width: 14px;
+            height: 14px;
+            animation-duration: 7s;
+            animation-delay: 3s;
+        }
+        .bubble5 {
+            left: 30%;
+            width: 9px;
+            height: 9px;
+            animation-duration: 5s;
+            animation-delay: 2.5s;
+        }
+
+        
+        @keyframes rise {
+            0% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-500px);
+                opacity: 0;
+            }
+        }
+
+        .border-top, .border-bottom {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #0086b3;
+        }
+        .border-top { top: 0; }
+        .border-bottom { bottom: 0; }
+
+        .seafloor {
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            bottom: 0;
+            background: linear-gradient(to top, #654321, #855e42);
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="aquarium">
+        <img src="assets/n1.png" class="fish fish1" alt="Fish 1">
+        <img src="assets/n2.png" class="fish fish2" alt="Fish 2">
+        <img src="assets/n1.png" class="fish fish3" alt="Fish 3">
+        <img src="assets/CUA.png" class="crab" alt="crab">
+        <div class="bubble bubble1"></div>
+        <div class="bubble bubble2"></div>
+        <div class="bubble bubble3"></div>
+        <div class="bubble bubble4"></div>
+        <div class="bubble bubble5"></div>
+        <div class="seafloor"></div>
+        <img src="assets/n1.png" class="ca" alt="ca">
+        <img src="assets/mực.png" class="muc" alt="muc">
+    </div>
+</body>
+</html>
